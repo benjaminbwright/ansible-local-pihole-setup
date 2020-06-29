@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+    - name: install htop
+      apt:
+        - name: git
+          state: present
+          update_cache: yes
