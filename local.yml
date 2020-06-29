@@ -3,9 +3,9 @@
   hosts: localhost
   become: true
   tasks:
-    - name: Install git
+    - name: Install htop
       become: yes
       apt:
-        name: git
+        name: htop
         state: present
         update_cache: yes
