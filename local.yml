@@ -3,7 +3,7 @@
   hosts: localhost
   become: true
   tasks:
-    - name: install htop
+    - name: Install git
       become: yes
       apt:
         - name: git
