@@ -6,6 +6,6 @@
     - name: Install git
       become: yes
       apt:
-        - name: git
-          state: present
-          update_cache: yes
+        name: git
+        state: present
+        update_cache: yes
