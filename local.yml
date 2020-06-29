@@ -1,8 +1,10 @@
 ---
-- hosts: localhost
+- name: setup pihole
+  hosts: localhost
   become: true
   tasks:
     - name: install htop
+      become: yes
       apt:
         - name: git
           state: present
