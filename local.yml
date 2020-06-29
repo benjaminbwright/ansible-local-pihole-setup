@@ -9,3 +9,11 @@
         name: curl
         state: present
         update_cache: yes
+    - name: Install PiHole Installer
+      get_url: url=https://install.pi-hole.net dest=/tmp/pihole-installer.sh
+    - name: PiHole Installer
+      shell: /tmp/pihole-installer.sh
+    - name: Remove PiHole Installer
+      file:
+        path: /tmp/pihole-installer.sh
+        state: absent
