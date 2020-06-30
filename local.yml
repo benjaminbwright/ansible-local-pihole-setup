@@ -10,6 +10,7 @@
       tags: admin
 
     - name: "Disable WIFI and Bluetooth"
+      become: yes
       copy: src=./files/raspi-blacklist.conf dest=/etc/modprobe.d/raspi-blacklist.conf mode=0600
       tags: admin
 
