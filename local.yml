@@ -9,12 +9,33 @@
         name: pihole
       tags: admin
 
-    - name: Install curl
-      become: yes
+    - name: "Disable WIFI and Bluetooth"
+      copy: src=./files/raspi-blacklist.conf dest=/etc/modprobe.d/raspi-blacklist.conf mode=0600
+      tags: admin
+
+    - name: "Set default bash aliases"
+      copy: src=./files/etc_profile.d_bash_aliases.sh dest=/etc/profile.d/bash_aliases.sh mode=0600
+      tags: admin
+
+    - name: "Update APT package cache"
       apt:
-        name: curl
-        state: present
         update_cache: yes
+        upgrade: safe
+      tags: admin
+
+    - name: Install admin tools (vim, htop, ntop, nmap)
+      apt:
+        package: "{{ item }}"
+        state: installed
+      with_items:
+        - python-apt
+        - python-pip
+        - vim
+        - htop
+        - ntop
+        - nmap
+        - atop
+      tags: admin
     - name: Install PiHole Installer
       become: yes
       get_url: url=https://install.pi-hole.net dest=/tmp/pihole-installer.sh
