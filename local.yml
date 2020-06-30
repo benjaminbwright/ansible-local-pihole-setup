@@ -1,9 +1,10 @@
 ---
 - name: setup pihole
   hosts: localhost
-  become: true
+  become: yes
   tasks:
     - name: "Setting hostname to 'pihole'"
+      become: yes
       hostname:
         name: pihole
       tags: admin
