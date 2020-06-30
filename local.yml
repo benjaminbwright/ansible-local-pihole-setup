@@ -29,16 +29,9 @@
     - name: Install admin tools (vim, htop, ntop, nmap)
       become: yes
       apt:
-        package: "{{ item }}"
+        package:
+          ["python-apt", "python-pip", "vim", "htop", "ntop", "nmap", "atop"]
         state: installed
-      with_items:
-        - python-apt
-        - python-pip
-        - vim
-        - htop
-        - ntop
-        - nmap
-        - atop
       tags: admin
     - name: Install PiHole Installer
       become: yes
