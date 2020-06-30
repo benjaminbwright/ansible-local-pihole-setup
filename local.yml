@@ -26,7 +26,7 @@
         upgrade: safe
       tags: admin
 
-    - name: Install admin tools (vim, htop, ntop, nmap)
+    - name: Install admin tools (vim, htop, ntopng, nmap)
       become: yes
       apt:
         package:
