@@ -30,7 +30,7 @@
       become: yes
       apt:
         package:
-          ["python-apt", "python-pip", "vim", "htop", "ntop", "nmap", "atop"]
+          ["python-apt", "python-pip", "vim", "htop", "ntopng", "nmap", "atop"]
         state: present
       tags: admin
     - name: Install PiHole Installer
