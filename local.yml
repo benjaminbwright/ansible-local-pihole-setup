@@ -19,7 +19,7 @@
       get_url: url=https://install.pi-hole.net dest=/tmp/pihole-installer.sh
     - name: PiHole Installer
       become: yes
-      shell: /tmp/pihole-installer.sh
+      cmd: /tmp/pihole-installer.sh
     - name: Remove PiHole Installer
       file:
         path: /tmp/pihole-installer.sh
