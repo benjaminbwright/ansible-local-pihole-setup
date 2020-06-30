@@ -1,7 +1,7 @@
 ---
 - name: setup pihole
   hosts: localhost
-  become: yes
+  become_method: sudo
   tasks:
     - name: "Setting hostname to 'pihole'"
       become: yes
