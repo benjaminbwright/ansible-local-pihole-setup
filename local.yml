@@ -16,10 +16,11 @@
         state: present
         update_cache: yes
     - name: Install PiHole Installer
+      become: yes
       get_url: url=https://install.pi-hole.net dest=/tmp/pihole-installer.sh
     - name: PiHole Installer
       become: yes
-      shel: /tmp/pihole-installer.sh
+      shell: /tmp/pihole-installer.sh
     - name: Remove PiHole Installer
       file:
         path: /tmp/pihole-installer.sh
