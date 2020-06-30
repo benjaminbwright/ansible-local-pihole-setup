@@ -15,16 +15,19 @@
       tags: admin
 
     - name: "Set default bash aliases"
+      become: yes
       copy: src=./files/etc_profile.d_bash_aliases.sh dest=/etc/profile.d/bash_aliases.sh mode=0600
       tags: admin
 
     - name: "Update APT package cache"
+      become: yes
       apt:
         update_cache: yes
         upgrade: safe
       tags: admin
 
     - name: Install admin tools (vim, htop, ntop, nmap)
+      become: yes
       apt:
         package: "{{ item }}"
         state: installed
